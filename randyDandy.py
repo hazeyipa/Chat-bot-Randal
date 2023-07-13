@@ -1,11 +1,10 @@
-
 #import needed modules 
 import json #READ JSON GOD I JHATE JSON FILES WITH EVERYTHING IN ME AHHHHH
 import re #re
 import randomResponse #imports my python file 
 
 #imports json data file 
-file_path = 'C:\\Users\\CSCamp22\\myEDU camp\\newfloder.py\\RandyBot\\responses.json'
+file_path = r'responses.json'
 
 #function to load json file 
 def loadJson(): #function name 
@@ -19,20 +18,22 @@ print(responseData)
 
 
 def getResponse(inputStr):
-    splitMessage = re.split(r'\s+[.;?!,]\s*', inputStr.lower()) #this does something important but I dunno what 
+    splitMessage = re.split(r'\W+', inputStr.lower()) #this does something important but I dunno what 
+    print(splitMessage)
     scoreList = []  #stores score 
 
         #checks all responses 
     for response in responseData:
-        responseScore= 0
+        responseScore = 0
         requiredScore = 0
-        requiredWords = response["requiredWords"] #LITERALLY DID NOT KNOW THIS WAS SUPPOSED TO BE IN BRACKETS WHAT
+        requiredWords = response['requiredWords'] #LITERALLY DID NOT KNOW THIS WAS SUPPOSED TO BE IN BRACKETS WHAT
+        print(requiredWords)
              
          #checks if any of the required words (defined in json file ) are present
         if requiredWords:
             for word in splitMessage:
                 if word in requiredWords:
-                    requiredScore +=1 
+                    requiredScore += 1 
 
                  
             if requiredScore == len(requiredWords):
@@ -48,13 +49,14 @@ def getResponse(inputStr):
 
         if inputStr == "":
             return "Uhh, can I help you with anything?"
+            break
     
-        
-             
-        if bestResponse != 0:
+        elif bestResponse != 0:
             return responseData[responseIndex]["botResponse"]
-                  
-        return randomResponse.randomStr()
+            break      
+        
+    
+    return randomResponse.randomStr()
 
 
 while True:
