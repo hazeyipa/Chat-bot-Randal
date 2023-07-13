@@ -26,7 +26,7 @@
     {
       "responseType": "question",
       "userInput": ["anime", "can", "you", "recommend", "me"],
-      "botResponse": "We don't offer refunds for free education.",
+      "botResponse": "Absolutley!",
       "requiredWords": ["anime", "recommend"]
     },
     {
