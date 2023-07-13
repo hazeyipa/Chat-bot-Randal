@@ -13,13 +13,11 @@ def loadJson(): #function name
         return responseData #return data :) 
 
 responseData = loadJson() #store data in variable responseData 
-print(responseData)
 
 
 
 def getResponse(inputStr):
     splitMessage = re.split(r'\W+', inputStr.lower()) #this does something important but I dunno what 
-    print(splitMessage)
     scoreList = []  #stores score 
 
         #checks all responses 
@@ -27,7 +25,6 @@ def getResponse(inputStr):
         responseScore = 0
         requiredScore = 0
         requiredWords = response['requiredWords'] #LITERALLY DID NOT KNOW THIS WAS SUPPOSED TO BE IN BRACKETS WHAT
-        print(requiredWords)
              
          #checks if any of the required words (defined in json file ) are present
         if requiredWords:
